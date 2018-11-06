@@ -129,6 +129,32 @@ Request (PHP)
 
      $updatedOrder = $mollie->orders->get($order->id);
 
+Request (Python)
+^^^^^^^^^^^^^^^^
+.. code-block:: python
+   :linenos:
+
+   from mollie.api.client import Client
+
+   mollie_client = Client()
+   mollie_client.set_api_key('test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM')
+
+   order = mollie_client.orders.get('ord_8wmqcHMN4U')
+   order.cancel_lines({
+      'lines': [
+         {
+            'id': 'odl_dgtxyl',
+            'quantity': 1 # you can partially cancel the line
+         },
+         {
+            'id': 'odl_jp31jz' # or cancel the line completely
+         },
+      ]
+   })
+
+   # if you want to cancel all eligible lines, you can use this shorthand:
+   order.cancel_lines()
+
 Response
 ^^^^^^^^
 .. code-block:: http

@@ -74,6 +74,17 @@ Request (PHP)
      $mollie->setApiKey("test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");
      $order = $mollie->orders->cancel("ord_8wmqcHMN4U");
 
+Request (Python)
+^^^^^^^^^^^^^^^^
+.. code-block:: python
+   :linenos:
+
+    from mollie.api.client import Client
+
+    mollie_client = Client()
+    mollie_client.set_api_key('test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM')
+    mollie_client.orders.delete('ord_8wmqcHMN4U')
+
 Response
 ^^^^^^^^
 .. code-block:: http

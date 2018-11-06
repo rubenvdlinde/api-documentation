@@ -133,6 +133,31 @@ Request (PHP)
       "description" => "Required quantity not in stock, refunding one photo book.",
     ]);
 
+Request (Python)
+^^^^^^^^^^^^^^^^
+.. code-block:: python
+   :linenos:
+
+   from mollie.api.client import Client
+
+   mollie_client = Client()
+   mollie_client.set_api_key('test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM')
+
+   order = mollie_client.orders.get('ord_stTC2WHAuS')
+
+   order.create_refund({
+      'lines': [
+         {
+            'id': 'odl_dgtxyl',
+            'quantity': 1
+         },
+      ],
+      'description': 'Required quantity not in stock, refunding one photo book.'
+   })
+
+   # Alternative shorthand for refunding all eligible order lines
+   order.create_refund()
+
 Response
 ^^^^^^^^
 .. code-block:: http

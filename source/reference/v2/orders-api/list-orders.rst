@@ -148,6 +148,18 @@ Request (PHP)
      $most_recent_orders = $mollie->orders->page();
      $previous_orders = $most_recent_orders->next();
 
+Request (Python)
+^^^^^^^^^^^^^^^^
+.. code-block:: python
+   :linenos:
+
+   from mollie.api.client import Client
+
+   mollie_client = Client()
+   mollie_client.set_api_key('test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM')
+
+   orders = mollie_client.orders.list()
+
 Response
 ^^^^^^^^
 .. code-block:: http
